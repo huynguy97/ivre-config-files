@@ -18,6 +18,8 @@
 
 # Work in progress is a Portscan.sh bash script which is a script that automatically detects all of the available templates in this file and then runs Masscan/Zmap, passes 
 # the results to Nmap and the results are imported in IVRE for viewing purposes. It should work, but needs some testing and final touches. 
+# The templates are also not completely clean at the moment due to the fact that some scripts might be listed twice (in default and seperately) but that makes 
+# debugging life a lot easier ;)
 
 #-------------------------------------------------------------------------README-------------------------------------------------------------------------------------------#
 
