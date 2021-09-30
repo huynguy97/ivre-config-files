@@ -1,7 +1,9 @@
 #-------------------------------------------------------------------------README-------------------------------------------------------------------------------------------#
 
 # IVRE is a network recon framework that does not perform any scanning by itself. It is not a scanner. However, it uses other scanning tools such as Nmap to do the scanning. 
-# Usually one would manually configure Nmap and run the neccesary scans, but this is not practical and using Nmap scan templates makes life easier. 
+# Usually one would manually configure Nmap and run the neccesary scans, but this is not practical and using Nmap scan templates makes life easier. After scanning is 
+# performed the scan results are passed on to IVRE which then can visualise the results. This is much easier than digging through Nmap output files manually. Especially
+# with thousands and thousands of hosts. Nmap does the scanning, IVRE does the visualisations. 
 
 # Nmap scan templates are used by IVRE to pass instructions on to Nmap. By default IVRE uses a default template, but one can use their own template.
 # Note that there are sometimes empty options e.g. pings="", but these still need to be defined in order to override the default IVRE template
