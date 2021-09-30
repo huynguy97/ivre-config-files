@@ -1,4 +1,4 @@
-#-------------------------------------------------------------------------README-----------------------------------------------------------------------------------------------#
+#-------------------------------------------------------------------------README-------------------------------------------------------------------------------------------#
 
 # IVRE is a network recon framework that does not perform any scanning by itself. It is not a scanner. However, it uses other scanning tools such as Nmap to do the scanning. 
 # Usually one would manually configure Nmap and run the neccesary scans, but this is not practical and using Nmap scan templates makes life easier. 
@@ -16,10 +16,10 @@
 #	scripts_force = ["default","http-headers", "http-auth-finder","http-git", "http-default-accounts", "http-csrf", "http-methods", "http-rfi-spider", "http-security-#headers"], 				      # this is a list of scripts that are ran, "default" enables many many nmap scripts: https://nmap.org/nsedoc/categories/default.html
 #	ports = "80, 443", 		    # which ports we want to scan
 
-# Work in progress is a Portscan.sh bash script which is a script that automatically detects all of the available templates in this file and then runs Masscan/Zmap, passes the 
-# results to Nmap and the results are imported in IVRE for viewing purposes. It should work, but needs some testing and final touches. 
+# Work in progress is a Portscan.sh bash script which is a script that automatically detects all of the available templates in this file and then runs Masscan/Zmap, passes 
+# the results to Nmap and the results are imported in IVRE for viewing purposes. It should work, but needs some testing and final touches. 
 
-#-------------------------------------------------------------------------README-----------------------------------------------------------------------------------------------#
+#-------------------------------------------------------------------------README-------------------------------------------------------------------------------------------#
 
 WEB_GET_NOTEPAD_PAGES = "localdokuwiki"
 
