@@ -1,5 +1,5 @@
 # README IVRE internship
-Stumbled upon this readme because the scanner is bothering your webserver? Check [here for potential reasons why and what you can do about it](#-Summary-of-scans-performed-and-potential-issues).
+Stumbled upon this readme because the scanner is bothering your webserver? Check [here for potential reasons why and what you can do about it](https://github.com/huynguy97/ivre-config-files/blob/main/README.md#summary-of-scans-performed-and-potential-issues).
 This GitHub repo serves as a readme with more technical details than the general report. It also includes all scripts and various other files. This was written by Huy Nguyen during an internship at SURF. 
 # Scanning
 ## Phase 1: Host discovery with Masscan & Zmap
