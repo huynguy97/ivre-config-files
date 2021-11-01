@@ -18,7 +18,7 @@ As mentioned before, all of the results (list of IPs which are shuffled) of Mass
 1. General scans. A service version scan and OS detection. The Nmap service version scan is performed with certain scripts. 
 The [default Nmap scripts](https://nmap.org/nsedoc/categories/default.html), [unusual-port](https://nmap.org/nsedoc/scripts/unusual-port.html) and [vulners](https://nmap.org/nsedoc/scripts/vulners.html) are used. Note that vulners does not know about any other context such as backports and can be rather inaccurate because of that. 
 The other general scan that is done is OS detection. 
-2. For the specific scans, there are too many Nmap scripts being used for that so [see the nmap scan templates for all details](https://github.com/huynguy97/ivre-config-files/blob/main/ivre-conf.txt). 
+2. For the specific scans, there are too many Nmap scripts being used for that so [see the nmap scan templates for all details](https://github.com/huynguy97/ivre-config-files/blob/main/scripts/ivre.conf). 
  
 Relevant findings, including issues:
 * Nmap scanning port 3389 RDP freezes at some point. I do not know why and trying various options such as reducing the scanning speed or reducing the amount of processes or even manually running Nmap instead of letting IVRE run Nmap do not seem to help.Might be related to this [issue](https://github.com/nmap/nmap/issues/1385). Setting timeouts also do not help. 
