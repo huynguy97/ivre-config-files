@@ -82,7 +82,7 @@ https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/still-scanning-i
 
 https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/are-you-really-scanning-what-you-think/
 
-https://book.hacktricks.xyz/ -- Especially the port sections are very useful. 
+https://book.hacktricks.xyz/ -- Especially the port sections are very useful. More pentesting than OSINT however. 
 
 https://www.reddit.com/r/Pentesting/comments/9ondj5/a_good_pentesting_tools_list/
 
