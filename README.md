@@ -1,5 +1,5 @@
 # README IVRE internship
-This document serves as a readme with more technical details than the general report. 
+This GitHub repo serves as a readme with more technical details than the general report. It also includes all scripts and various other files. 
 # Scanning
 ## Phase 1: Host discovery with Masscan & Zmap
 
