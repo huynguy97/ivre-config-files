@@ -1,4 +1,4 @@
-# Technical notes IVRE internship
+# README IVRE internship
 This document serves as a readme with more technical details than the general report. 
 # Scanning
 ## Phase 1: Host discovery with Masscan & Zmap
