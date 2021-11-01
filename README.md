@@ -46,7 +46,7 @@ The following tools are used:
 4. [Nuclei](https://github.com/projectdiscovery/nuclei). A vulnerability scanner. 
 
 Relevant findings, including issues: 
-* test-ssl sometimes does not finish. Against host 130.89.190.39 (a printer or something) and 185.116.125.96 test-ssl seems to freeze. As test-ssl is still in developement it is perhaps not unexpected to encouter some issues. Due to these hosts causing issues, it unfortunately also caused my other scans to crash and as a result there are roughly 300 hosts missing. Nonetheless, being able to run test-ssl on the other ~12.000 hosts is still a good result. A simple solution would be to set `host-timeout` in Nmap. 
+* test-ssl sometimes does not finish. Against host a printer or something test-ssl seems to freeze. As test-ssl is still in developement it is perhaps not unexpected to encouter some issues. Due to these hosts causing issues, it unfortunately also caused my other scans to crash and as a result there are roughly 300 hosts missing. Nonetheless, being able to run test-ssl on the other ~12.000 hosts is still a good result. A simple solution would be to set `host-timeout` in Nmap. 
 * IVRE has built in Nuclei support, but this was so buggy and frustrating to work with that I decided to build in Nuclei support myself. Positives of this is that every single Nuclei output is supported this way. Even ones that might be released in the future. As long as the output format does not change, the script should work.
 * Nuclei apparently has rather aggressive defaults for some hosts so I halved the defaults after complaints from Amsterdam UMC. This should double the scan time from 14~ hours to 28~ hours. 
 * Nuclei crashes against certain hosts. Removing these hosts seem to help. 
