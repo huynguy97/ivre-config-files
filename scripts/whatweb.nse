@@ -11,8 +11,7 @@ action = function(host,port)
 	local aggressive = stdnse.get_script_args("whatweb.aggression")
 	local handle = ""
 	local hostname = stdnse.get_hostname(host)
-	
- 	print(stdnse.get_hostname(host))	
+		
 	if aggressive == "3" or aggressive == "4" then -- more aggressive whatweb dection, might be intrusive so use with care.  
 		if port.number == 80 then 
 			handle = io.popen("whatweb --color=never http://" .. hostname .. " -a " .. aggressive)
