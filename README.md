@@ -56,6 +56,8 @@ It helps to read about the [web interface](https://doc.ivre.rocks/en/latest/usag
 
 All scans are grouped up in a category. These categories have the same names as the [nmap_scan_templates](https://github.com/huynguy97/ivre-config-files/blob/main/ivre-conf.txt). For example, when running a template named ```http``` will also create a category in IVRE named `http`. 
 
+Changes can be made to IVRE's codebase and rebuilding should be done as instructed in ["first install and run"](https://doc.ivre.rocks/en/latest/install/fast-install-and-first-run.html). This does not require restarting the apache server.   
+
 # Scripts and config files
 A summary of all scripts and config files used. See also [the scripts folder](https://github.com/huynguy97/ivre-config-files/tree/main/scripts). 
 
@@ -78,19 +80,39 @@ For Masscan there are two config files that control the scan speed and exclude f
 # Potentially useful tools and sources. 
 I came across a lot of tools and scanners that are potentially useful, but I have not looked at them all of them myself. 
 
-https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/still-scanning-ip-addresses-you-re-doing-it-wrong/
+[Two](https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/still-scanning-ip-addresses-you-re-doing-it-wrong/) [sources](https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/are-you-really-scanning-what-you-think/) regarding scanning hostnames or IPs. 
 
-https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/are-you-really-scanning-what-you-think/
 
-https://book.hacktricks.xyz/ -- Especially the port sections are very useful. More pentesting than OSINT however. 
 
-https://www.reddit.com/r/Pentesting/comments/9ondj5/a_good_pentesting_tools_list/
+[Extremely useful book](https://book.hacktricks.xyz/) written by Carlos Polop. Especially the port sections are very useful. However, the book is a lot more focused on pentesting than OSINT.
 
-https://pentest-standard.readthedocs.io/en/latest/intelligence_gathering.html
+[Another useful document](https://pentest-standard.readthedocs.io/en/latest/intelligence_gathering.html). Has an OSINT chapter. 
 
-https://research.securitum.com/nmap-and-12-useful-nse-scripts/
+[Some](https://research.securitum.com/nmap-and-12-useful-nse-scripts/) useful Nmap scripts. 
+
+Some web scanners. These were not used as some of them are straight up attacks and fit more in the pentesting category than OSINT.  
+
+http://w3af.org/
+
+https://wapiti.sourceforge.io/
+
+https://owasp.org/www-project-zap/
+
+Paid scanners that seem to be popular.
+
+https://portswigger.net/burp
+
+https://www.metasploit.com/
+
+https://www.tenable.com/products/nessus
+
+And finally, a list of lists.
+
+[This one](https://sectools.org/) is mainted by the creators of Nmap. 
 
 https://www.reddit.com/r/netsecstudents/comments/96boky/does_anyone_have_a_curated_list_of_tools_they_use/
+
+https://www.reddit.com/r/Pentesting/comments/9ondj5/a_good_pentesting_tools_list/
 
 Also special thanks to the IVRE and Nuclei devs for personally answering my questions. 
 
