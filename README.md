@@ -49,7 +49,7 @@ Relevant findings, including issues:
 * test-ssl sometimes does not finish. Against host a printer or something test-ssl seems to freeze. As test-ssl is still in developement it is perhaps not unexpected to encouter some issues. Due to these hosts causing issues, it unfortunately also caused my other scans to crash and as a result there are roughly 300 hosts missing. Nonetheless, being able to run test-ssl on the other ~12.000 hosts is still a good result. A simple solution would be to set `host-timeout` in Nmap. 
 * IVRE has built in Nuclei support, but this was so buggy and frustrating to work with that I decided to build in Nuclei support myself. Positives of this is that every single Nuclei output is supported this way. Even ones that might be released in the future. As long as the output format does not change, the script should work.
 * Nuclei apparently has rather aggressive defaults for some hosts so I halved the defaults after complaints from Amsterdam UMC. This should double the scan time from 14~ hours to 28~ hours. 
-* Nuclei crashes against certain hosts. Removing these hosts seem to help. 
+* Nuclei crashes against certain hosts. Removing these hosts seem to help, but identifying them is not easily done. 
 
 # IVRE 
 It helps to read about the [web interface](https://doc.ivre.rocks/en/latest/usage/web-ui.html) and as I have added some other scanners myself there is an extra tab "External". This should make searching for results from external tools easier. It also includes some other small things that I have added such as honeypot filtering.  
@@ -62,7 +62,8 @@ Changes can be made to IVRE's codebase and rebuilding should be done as instruct
 A summary of all scripts and config files used. See also [the scripts folder](https://github.com/huynguy97/ivre-config-files/tree/main/scripts). 
 
 ## Bash scripts
-* `Portscan.sh` =  a simple bash script that can run every scan. It calls various other scripts and config files that will be explained below. Must run with sudo rights for Masscan and Nmap. All of the parameters can be changed at the beginning of the file. It is slightly hardcoded to only accept nmap_scan_templates that adhere to the "correct" template. So if you add a template and follow the examples everything should work fine. 
+* `Portscan.sh` =  a simple bash script that can run every scan. It will ask for user input and from there on you can choose which scan to run. It calls various other scripts and config files that will be explained below. Must run with sudo rights for Masscan and Nmap. All of the parameters can be changed at the beginning of the file. It is slightly hardcoded to only accept nmap_scan_templates that adhere to the "correct" template. So if you add a template and follow the examples everything should work fine. 
+* `PortscanAllTCP.sh = as the previous `Portscan.sh` script requires human input, this one does not. It will run all TCP scans on its own. Note, its all TCP scans so no UDP scans are performed. 
 * `cleanMasscanFile.sh` = this script is just a oneliner that cleans up the Masscan output such that Nmap can properly read it. Also shuffles the IPs. Currently a oneliner, but perhaps useful to extend when other scanners than Masscan are used.  
 
 ## Masscan config files. 
@@ -70,12 +71,13 @@ For Masscan there are two config files that control the scan speed and exclude f
 * `tcpscan.conf` = used for small TCP scans. For example, scanning only SSH port 22 or only HTTP ports 80/443. Default scan rate of 5.000.
 * `generalscan.conf` = used for the bigger TCP scans. For example, the general scan on 256 ports. Default scan rate of 50.000. 
 
-## Nmap scripts
+## Nmap and IVRE scripts 
 * `/etc/ivre.conf` = default location that contains all nmap_scan_templates. Which is how IVRE configures Nmap scans. These templates are passed onto Nmap for scans. See also [here](https://doc.ivre.rocks/en/latest/install/config.html) and [here](https://github.com/ivre/ivre/blob/master/ivre/nmapopt.py). 
 * `whatweb.nse` = runs [whatweb](https://github.com/urbanadventurer/WhatWeb). Script arguments can be supplied to change aggression level. By default it runs stealthy. 
 * `nuclei.nse` = runs [nuclei](https://github.com/projectdiscovery/nuclei). Potentially load heavy. Especially on smaller servers. Might also be intrusive depending on your definition as it tries to grab password files and similar "secret" stuff. 
 * `test-ssl.nse` = runs [test-ssl](https://testssl.sh). Script arguments can be supplied to change output. By default only outputs severity HIGH or worse. 
 * `ssh-audit.nse` = runs [ssh-audit](https://github.com/jtesta/ssh-audit).
+* `export.py` = this python script takes two arguments and will convert an ndjson output file (ivre > share > NDJSON export) to a more readable format with ip + finding. 
 
 # Potentially useful tools and sources. 
 I came across a lot of tools and scanners that are potentially useful, but I have not looked at them all of them myself. 
