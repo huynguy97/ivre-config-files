@@ -63,7 +63,7 @@ A summary of all scripts and config files used. See also [the scripts folder](ht
 
 ## Bash scripts
 * `Portscan.sh` =  a simple bash script that can run every scan. It will ask for user input and from there on you can choose which scan to run. It calls various other scripts and config files that will be explained below. Must run with sudo rights for Masscan and Nmap. All of the parameters can be changed at the beginning of the file. It is slightly hardcoded to only accept nmap_scan_templates that adhere to the "correct" template. So if you add a template and follow the examples everything should work fine. 
-* `PortscanAllTCP.sh = as the previous `Portscan.sh` script requires human input, this one does not. It will run all TCP scans on its own. Note, its all TCP scans so no UDP scans are performed. 
+* `PortscanAllTCP.sh = as the previous `Portscan.sh` script requires human input, this one does not. It will run all TCP scans on its own. Note, its all TCP scans so no UDP scans are performed. Also, the first few scans can be problematic and freeze. These are ike, RDP and test-ssl as described above. 
 * `cleanMasscanFile.sh` = this script is just a oneliner that cleans up the Masscan output such that Nmap can properly read it. Also shuffles the IPs. Currently a oneliner, but perhaps useful to extend when other scanners than Masscan are used.  
 
 ## Masscan config files. 
@@ -127,4 +127,4 @@ Also special thanks to the IVRE and Nuclei devs for personally answering my ques
 6.  [Nuclei](https://github.com/projectdiscovery/nuclei). A vulnerability scanner. Now this is a heavier tool that does a lot of requests and there are even times where it will craft specific URLs in its requests to try to check password files and other things that can be considered intrusive. The amount of requests per second has been heavily reduced after initial complaints in the week of 25 oktober, but might still have caused issues on smaller servers. The results are promising enough and "critical" and "high" vulnerabilities have been found.
 No intrusive templates are ran, but this tool is still one of the more heavier scanning tools that are ran. For the near future the scans will be annonced and ran at a lower rate. 
 
-For questions, please contact ? 
+Still have questions or problems with the scans? Please contact SURFcert in that case. 
