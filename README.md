@@ -63,7 +63,7 @@ A summary of all scripts and config files used. See also [the scripts folder](ht
 
 ## Bash scripts
 * `Portscan.sh` =  a simple bash script that can run every scan. It will ask for user input and from there on you can choose which scan to run. It calls various other scripts and config files that will be explained below. Must run with sudo rights for Masscan and Nmap. All of the parameters can be changed at the beginning of the file. It is slightly hardcoded to only accept nmap_scan_templates that adhere to the "correct" template. So if you add a template and follow the examples everything should work fine. 
-* `PortscanAllTCP.sh = as the previous `Portscan.sh` script requires human input, this one does not. It will run all TCP scans on its own. Note, its all TCP scans so no UDP scans are performed. Also, the first few scans can be problematic and freeze. These are ike, RDP and test-ssl as described above. 
+* `PortscanAllTCP.sh` = as the previous `Portscan.sh` script requires human input, this one does not. It will run all TCP scans on its own. Note, its all TCP scans so no UDP scans are performed. However, a word of warning: the first few scans can be problematic and freeze on certain hosts. These are ike, RDP and test-ssl as described above. 
 * `cleanMasscanFile.sh` = this script is just a oneliner that cleans up the Masscan output such that Nmap can properly read it. Also shuffles the IPs. Currently a oneliner, but perhaps useful to extend when other scanners than Masscan are used.  
 
 ## Masscan config files. 
@@ -79,12 +79,16 @@ For Masscan there are two config files that control the scan speed and exclude f
 * `ssh-audit.nse` = runs [ssh-audit](https://github.com/jtesta/ssh-audit).
 * `export.py` = this python script takes two arguments and will convert an ndjson output file (ivre > share > NDJSON export) to a more readable format with ip + finding. 
 
-# Potentially useful tools and sources. 
+# Potential future work, useful tools and sources. 
+## Future work
+* Improve scans when scanning webservers. Any webserver might host multiple domains. Currently, Nmap is used for dns resolution and Nmap does not resolve all hosts. It picks one somewhat randomly. Tools such as nslookup and amass were tried to remedy this issue, but they do not seem to work as wanted. For example, according to nslookup and Shodan the ip 131.174.78.66 hosts domains `faraomier.isc.ru.nl` and `rcsw.nl`. This ip also hosts `ogzon.nl`. The latter is found by amass (amass intel -src -active -addr 131.174.88.66), but amass misses the first two domains and also shows incorrect results. https://hackertarget.com/reverse-ip-lookup/ seems to be a better (but paid) tool, but it uses bing instead of requesting DNS records. It seems to be almost correct, but it misses one domain that the other tools consistently find. The DNS records do not seem to be reliable and external tools that use other means also do not seem to be reliable. Perhaps a mixture of both methods could work? 
+* As mentioned in previous chapters, some tools such as Masscan and Zmap are a bit buggy currently. Similarly for Nmap that just freezes on some hosts despite timeout options. Hopefully future releases can fix these issues. 
+* Dealing with historic results in IVRE is not very easy. It requires using the `--no-merge` option, but this fills the database with a lot of entries and quickly becomes hard to view. 
+
+## Tools and useful sources
 I came across a lot of tools and scanners that are potentially useful, but I have not looked at them all of them myself. 
 
 [Two](https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/still-scanning-ip-addresses-you-re-doing-it-wrong/) [sources](https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/are-you-really-scanning-what-you-think/) regarding scanning hostnames or IPs. 
-
-
 
 [Extremely useful book](https://book.hacktricks.xyz/) written by Carlos Polop. Especially the port sections are very useful. However, the book is a lot more focused on pentesting than OSINT.
 
