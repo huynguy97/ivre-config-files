@@ -86,6 +86,7 @@ For Masscan there are two config files that control the scan speed and exclude f
 * Dealing with historic results in IVRE is not very easy. It requires using the `--no-merge` option, but this fills the database with a lot of entries and quickly becomes hard to view. 
 * Add some more functionality to IVRE. For example, there is no way to see when a script was ran unless the script adds a timestamp in its own output. So for instance, if a certain HTTP script was ran you cannot see exactly when this script was ran. IVRE does keep track of when a host was scanned (with any tool/script and thus not specifically the script you want), so there might be a way to add this in IVRE somehow by messing around with the parser. The existing timestamps in IVRE only tell you the last time a host has been scanned, but no details of which script was used at that time. 
 * Scanning IPv6 using NetFlow data. IPv4 is rather easy to scan, but IPv6 is simply too big. However, should be a lot more doable with NetFlow data. 
+* Passive OSINT data. Find more ways to gather passive OSINT data. Think of passive DNS or even tools that scour the web for passive data in someway. 
 
 ## Tools and useful sources
 I came across a lot of tools and scanners that are potentially useful, but I have not looked at them all of them myself. 
